@@ -3,6 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem "dotenv-rails", groups: [:development, :test]
 
+# Brakeman analyzes our code
+# for security vulnerabilities
+gem "brakeman"
+  
+# bundler-audit enables bundle audit which analyzes our
+# dependencies for known vulnerabilities
+gem "bundler-audit"
+
+# lograge changes Rails' logging to a more
+# traditional one-line-per-event format
+gem "lograge"
 
 ruby "3.0.2"
 
