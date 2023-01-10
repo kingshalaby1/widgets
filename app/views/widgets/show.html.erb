@@ -1,20 +1,15 @@
 <h1><%= @widget.name %></h1> 
-<h2>ID #<%= @widget.id %></h2>
+<h2>ID #<%= @widget.widget_id %></h2>
 
- <% if flash[:notice].present? %>
+<% if flash[:notice].present? %>
 <aside>
 <%= flash[:notice] %>
 </aside>
- <% end %> 
- <section>
-  <h3> rate this widget </h3>
-  
-  <ol>
-    <% (1..5).each do |rating| %>
-    <li>
-    <%= button_to rating, widget_ratings_path, params: {widget_id: @widget.id, rating: rating}  %>
-    </li>
-    <% end %>
-  
-  </ol>
-  </section>
+<% end %> 
+
+<h3>
+  Built by <%= @widget.manufacturer.name %>
+  out of <%= @widget.manufacturer.address.country %>
+</h3>
+
+<%= widget_rating_component(@widget) %>
