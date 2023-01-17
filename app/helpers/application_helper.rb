@@ -6,9 +6,14 @@ module ApplicationHelper
   end
   
   def styled_widget_id(formatted_id) 
-    content_tag(:span,
-    formatted_id,
-    style: "font-family: monospace")
+    # content_tag(:span,
+    # formatted_id,
+    # style: "font-family: monospace")
+    %{
+    <span style="font-family: monospace">
+      #{ formatted_id }
+    </span>
+  }.html_safe
   end
 
 end
